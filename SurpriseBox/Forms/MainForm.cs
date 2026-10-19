@@ -41,8 +41,6 @@ namespace SurpriseBox.Forms
 
             HomePageControl homePage = new HomePageControl();
 
-            homePage.Dock = DockStyle.Fill;
-
             pnlContent.Controls.Add(homePage);
         }
     }

@@ -7,6 +7,25 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+
+
+        //-----------------------------
+        //-------START OF TEM----------
+        //-----------------------------
+        public void SetControlContent(string category, /*string pathSmallPicture,*/ string name, string description, decimal price)
+        {
+            lblCategory.Text = category;
+            //pbImage.Image 
+            lblName.Text = name;
+            lblDescription.Text = description;
+            lblPrice.Text = $"{price}";
+        }
+        //-----------------------------
+        //--------END OF TEMP----------
+        //-----------------------------
+
+
+
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -31,7 +50,7 @@
             pbImage = new PictureBox();
             pnlCategory = new FlowLayoutPanel();
             lblCategory = new Label();
-            lblTitle = new Label();
+            lblName = new Label();
             lblDescription = new Label();
             pbHeart = new PictureBox();
             lblPrice = new Label();
@@ -73,18 +92,18 @@
             lblCategory.Text = "Category";
             lblCategory.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblTitle
+            // lblName
             // 
-            lblTitle.AutoEllipsis = true;
-            lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Georgia", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(10, 135);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(151, 27);
-            lblTitle.TabIndex = 2;
-            lblTitle.Text = "Service Name";
+            lblName.AutoEllipsis = true;
+            lblName.AutoSize = true;
+            lblName.BackColor = Color.Transparent;
+            lblName.Font = new Font("Georgia", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblName.ForeColor = Color.White;
+            lblName.Location = new Point(10, 135);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(151, 27);
+            lblName.TabIndex = 2;
+            lblName.Text = "Service Name";
             // 
             // lblDescription
             // 
@@ -145,7 +164,7 @@
             Controls.Add(lblPrice);
             Controls.Add(pbHeart);
             Controls.Add(lblDescription);
-            Controls.Add(lblTitle);
+            Controls.Add(lblName);
             Controls.Add(pnlCategory);
             Controls.Add(pbImage);
             Margin = new Padding(5);
@@ -163,7 +182,7 @@
         private PictureBox pbImage;
         private FlowLayoutPanel pnlCategory;
         private Label lblCategory;
-        private Label lblTitle;
+        private Label lblName;
         private Label lblDescription;
         private PictureBox pbHeart;
         private Label lblPrice;

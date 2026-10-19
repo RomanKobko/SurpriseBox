@@ -111,6 +111,7 @@
             btnNext.TabIndex = 2;
             btnNext.Text = ">";
             btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
             // lblPageInfo
             // 
@@ -137,6 +138,7 @@
             btnPrev.TabIndex = 0;
             btnPrev.Text = "<";
             btnPrev.UseVisualStyleBackColor = false;
+            btnPrev.Click += btnPrev_Click;
             // 
             // HomePageControl
             // 
