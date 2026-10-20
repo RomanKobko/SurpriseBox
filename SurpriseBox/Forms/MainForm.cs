@@ -1,21 +1,17 @@
 ﻿using SurpriseBox.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Reflection.Emit;
-using System.Text;
-using System.Windows.Forms;
+using SurpriseBox.Models;
 
 namespace SurpriseBox.Forms
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Initializes the main application form.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
+
             LoadHomePage();
 
             // 1. Save screen coordinates while the labels are still positioned relative to the Form
@@ -35,13 +31,49 @@ namespace SurpriseBox.Forms
             lblBannerSubtitle.BackColor = Color.Transparent;
         }
 
+        /// <summary>
+        /// Loads the home page into the content panel.
+        /// </summary>
         private void LoadHomePage()
         {
             pnlContent.Controls.Clear();
 
             HomePageControl homePage = new HomePageControl();
 
+            homePage.ProductSelected += LoadProductDetailsPage;
+
             pnlContent.Controls.Add(homePage);
+        }
+
+        /// <summary>
+        /// Loads the product details page for the selected catalog item.
+        /// </summary>
+        /// <param name="item">Selected catalog item.</param>
+        private void LoadProductDetailsPage(CatalogItem item)
+        {
+            pnlContent.Controls.Clear();
+
+            ProductDetailsPageControl homePage = new ProductDetailsPageControl(item);
+
+            pnlContent.Controls.Add(homePage);
+        }
+
+        /// <summary>
+        /// Handles navigation to the home page.
+        /// Reloads the page if a search is active or the user is not on the first catalog page.
+        /// </summary>
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            if (pnlContent.Controls[0] is not HomePageControl homePage)
+            {
+                LoadHomePage();
+                return;
+            }
+
+            if (homePage.IsSearchActive || homePage.LblPageInfo[0] != '1')
+            {
+                LoadHomePage();
+            }
         }
     }
 }

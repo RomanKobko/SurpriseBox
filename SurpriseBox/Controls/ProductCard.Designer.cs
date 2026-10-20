@@ -7,11 +7,10 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-
-
         //-----------------------------
-        //-------START OF TEM----------
+        //-------START OF TEMP---------
         //-----------------------------
+        //ToDo Add test images in Json and implement the logic to check if img is not present so that the image is uploaded by default
         public void SetControlContent(string category, /*string pathSmallPicture,*/ string name, string description, decimal price)
         {
             lblCategory.Text = category;
@@ -23,8 +22,6 @@
         //-----------------------------
         //--------END OF TEMP----------
         //-----------------------------
-
-
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -62,6 +59,7 @@
             // 
             // pbImage
             // 
+            pbImage.Cursor = Cursors.Hand;
             pbImage.Image = Properties.Resources.DefaultProductCardImg;
             pbImage.Location = new Point(0, 0);
             pbImage.Name = "pbImage";
@@ -97,6 +95,7 @@
             lblName.AutoEllipsis = true;
             lblName.AutoSize = true;
             lblName.BackColor = Color.Transparent;
+            lblName.Cursor = Cursors.Hand;
             lblName.Font = new Font("Georgia", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.White;
             lblName.Location = new Point(10, 135);
@@ -143,6 +142,7 @@
             // btnAddToCart
             // 
             btnAddToCart.BackColor = Color.FromArgb(245, 185, 70);
+            btnAddToCart.Cursor = Cursors.Hand;
             btnAddToCart.FlatAppearance.BorderSize = 0;
             btnAddToCart.FlatStyle = FlatStyle.Flat;
             btnAddToCart.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);

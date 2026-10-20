@@ -73,6 +73,16 @@ namespace SurpriseBox.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DefaultProductCardFullImg {
+            get {
+                object obj = ResourceManager.GetObject("DefaultProductCardFullImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DefaultProductCardImg {
             get {
                 object obj = ResourceManager.GetObject("DefaultProductCardImg", resourceCulture);
