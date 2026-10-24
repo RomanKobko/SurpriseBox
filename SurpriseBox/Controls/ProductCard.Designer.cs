@@ -153,6 +153,7 @@
             btnAddToCart.TabIndex = 6;
             btnAddToCart.Text = "Add To Cart";
             btnAddToCart.UseVisualStyleBackColor = false;
+            btnAddToCart.Click += btnAddToCart_Click;
             // 
             // ProductCard
             // 

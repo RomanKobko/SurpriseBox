@@ -1,10 +1,10 @@
 ﻿using SurpriseBox.Models;
 
-/// <summary>
-/// Defines the service contract for loading catalog items.
-/// </summary>
 namespace SurpriseBox.Service.Interfaces
 {
+    /// <summary>
+    /// Defines the service contract for loading catalog items.
+    /// </summary>
     public interface ICatalogService
     {
         /// <summary>

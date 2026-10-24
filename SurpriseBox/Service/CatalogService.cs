@@ -23,48 +23,48 @@ namespace SurpriseBox.Service
         {
             if (!File.Exists(_catalogItemsJsonPath))
             {
-                throw new FileNotFoundException();
+                throw new FileNotFoundException($"Catalog file not found: {_catalogItemsJsonPath}");
             }
             // Open the file stream for reading
             using (StreamReader jsonFileReader = new StreamReader(_catalogItemsJsonPath))
             {
                 // Read the entire text content of the JSON file
-                string jsonContent = jsonFileReader.ReadToEnd();
+                string jsonCatalogContent = jsonFileReader.ReadToEnd();
 
                 // Deserialize the text into intermediate Data Transfer Objects (DTOs)
-                List<CatalogItemDto> myCatalogItemDto = JsonSerializer.Deserialize<List<CatalogItemDto>>(jsonContent) ?? new();
+                List<CatalogItemDto> catalogItemDto = JsonSerializer.Deserialize<List<CatalogItemDto>>(jsonCatalogContent) ?? new();
 
                 // Create corresponding model objects based on the read data
-                List<CatalogItem> myCatalogItem = (from catalog in myCatalogItemDto
-                                                   select catalog.CatalogCategory switch
-                                                   {
-                                                       // Convert to Gift model
-                                                       CatalogCategory.Gift => (CatalogItem)new Gift
-                                                       {
-                                                           Id = catalog.Id,
-                                                           Name = catalog.Name,
-                                                           Description = catalog.Description,
-                                                           Price = catalog.Price,
-                                                           SmallImagePath = catalog.SmallImagePath,
-                                                           LargeImagePath = catalog.LargeImagePath,
-                                                           AvailableQuantity = catalog.AvailableQuantity
-                                                       },
-                                                       // Convert to Experience model
-                                                       CatalogCategory.Experience => (CatalogItem)new Experience
-                                                       {
-                                                           Id = catalog.Id,
-                                                           Name = catalog.Name,
-                                                           Description = catalog.Description,
-                                                           Price = catalog.Price,
-                                                           SmallImagePath = catalog.SmallImagePath,
-                                                           LargeImagePath = catalog.LargeImagePath,
-                                                           Duration = catalog.Duration
-                                                       },
-                                                       // If the category is unknown, throw an exception.
-                                                       _ => throw new InvalidOperationException("Unknown category for model creation.")
-                                                   }).ToList();
+                List<CatalogItem> catalogItem = (from catalog in catalogItemDto
+                                                 select catalog.CatalogCategory switch
+                                                 {
+                                                     // Convert to Gift model
+                                                     CatalogCategory.Gift => (CatalogItem)new Gift
+                                                     {
+                                                         Id = catalog.Id,
+                                                         Name = catalog.Name,
+                                                         Description = catalog.Description,
+                                                         Price = catalog.Price,
+                                                         SmallImagePath = catalog.SmallImagePath,
+                                                         LargeImagePath = catalog.LargeImagePath,
+                                                         AvailableQuantity = catalog.AvailableQuantity
+                                                     },
+                                                     // Convert to Experience model
+                                                     CatalogCategory.Experience => (CatalogItem)new Experience
+                                                     {
+                                                         Id = catalog.Id,
+                                                         Name = catalog.Name,
+                                                         Description = catalog.Description,
+                                                         Price = catalog.Price,
+                                                         SmallImagePath = catalog.SmallImagePath,
+                                                         LargeImagePath = catalog.LargeImagePath,
+                                                         Duration = catalog.Duration
+                                                     },
+                                                     // If the category is unknown, throw an exception.
+                                                     _ => throw new InvalidOperationException("Unknown category for model creation.")
+                                                 }).ToList();
 
-                return myCatalogItem;   //Return the complete list of converted models.
+                return catalogItem;   //Return the complete list of converted models.
             }
         }
     }

@@ -93,6 +93,16 @@ namespace SurpriseBox.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainPageBanner {
+            get {
+                object obj = ResourceManager.GetObject("MainPageBanner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RedHeart {
             get {
                 object obj = ResourceManager.GetObject("RedHeart", resourceCulture);

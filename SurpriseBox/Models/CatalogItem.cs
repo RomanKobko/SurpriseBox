@@ -20,9 +20,7 @@ namespace SurpriseBox.Models
         /// <summary>Path to the large full-size image for the details page.</summary>
         public string LargeImagePath { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets the category of the current catalog item.
-        /// </summary>
+        /// <summary>Gets the category of the current catalog item.</summary>
         public abstract CatalogCategory CatalogCategory { get; }
     }
 }

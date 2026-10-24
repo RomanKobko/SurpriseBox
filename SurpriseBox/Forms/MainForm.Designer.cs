@@ -40,7 +40,6 @@
             lblHearts = new Label();
             pbBanner = new PictureBox();
             lblBannerTitle = new Label();
-            lblBannerSubtitle = new Label();
             pnlContent = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAvatar).BeginInit();
@@ -71,6 +70,7 @@
             // btnHome
             // 
             btnHome.BackColor = Color.FromArgb(35, 40, 50);
+            btnHome.Cursor = Cursors.Hand;
             btnHome.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 85);
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -86,6 +86,7 @@
             // btnCart
             // 
             btnCart.BackColor = Color.FromArgb(35, 40, 50);
+            btnCart.Cursor = Cursors.Hand;
             btnCart.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 85);
             btnCart.FlatStyle = FlatStyle.Flat;
             btnCart.Font = new Font("Segoe UI", 11F);
@@ -96,10 +97,12 @@
             btnCart.TabIndex = 3;
             btnCart.Text = "Cart";
             btnCart.UseVisualStyleBackColor = false;
+            btnCart.Click += btnCart_Click;
             // 
             // btnSettings
             // 
             btnSettings.BackColor = Color.FromArgb(35, 40, 50);
+            btnSettings.Cursor = Cursors.Hand;
             btnSettings.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 85);
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.Font = new Font("Segoe UI", 11F);
@@ -109,7 +112,7 @@
             btnSettings.Size = new Size(170, 50);
             btnSettings.TabIndex = 4;
             btnSettings.Text = "Settings";
-            btnSettings.UseVisualStyleBackColor = false;
+            btnSettings.UseVisualStyleBackColor = true;
             // 
             // pbAvatar
             // 
@@ -161,6 +164,7 @@
             // pbBanner
             // 
             pbBanner.BackColor = Color.FromArgb(15, 20, 30);
+            pbBanner.Image = Properties.Resources.MainPageBanner;
             pbBanner.Location = new Point(30, 105);
             pbBanner.Name = "pbBanner";
             pbBanner.Size = new Size(1520, 90);
@@ -180,18 +184,6 @@
             lblBannerTitle.TabIndex = 10;
             lblBannerTitle.Text = "Extraordinary Experiences\nfor Extraordinary People";
             // 
-            // lblBannerSubtitle
-            // 
-            lblBannerSubtitle.AutoSize = true;
-            lblBannerSubtitle.BackColor = Color.Transparent;
-            lblBannerSubtitle.Font = new Font("Times New Roman", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBannerSubtitle.ForeColor = Color.White;
-            lblBannerSubtitle.Location = new Point(1140, 135);
-            lblBannerSubtitle.Name = "lblBannerSubtitle";
-            lblBannerSubtitle.Size = new Size(380, 33);
-            lblBannerSubtitle.TabIndex = 11;
-            lblBannerSubtitle.Text = "Discover. Gift. Create Memories.";
-            // 
             // pnlContent
             // 
             pnlContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -208,7 +200,6 @@
             BackColor = Color.FromArgb(10, 12, 18);
             ClientSize = new Size(1582, 853);
             Controls.Add(pnlContent);
-            Controls.Add(lblBannerSubtitle);
             Controls.Add(lblBannerTitle);
             Controls.Add(pbBanner);
             Controls.Add(lblHearts);
@@ -247,7 +238,6 @@
         private Label lblHearts;
         private PictureBox pbBanner;
         private Label lblBannerTitle;
-        private Label lblBannerSubtitle;
         private Panel pnlContent;
     }
 }
